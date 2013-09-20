@@ -29,7 +29,10 @@
     
     if (_strikeThroughEnabled) {
         CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSaveGState(context);
+        CGContextSetFillColorWithColor(context, [self.textColor CGColor]);
         CGContextFillRect(context, lineRect);
+        CGContextRestoreGState(context);
     }
 }
 
